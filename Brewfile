@@ -16,11 +16,21 @@ cask "arc"
 #Code Editors
 cask "visual-studio-code"
 
-# 
+# Window Management
 cask "raycast"
+cask "alt-tab"
 
 # Screenshot Tool
 cask "shottr"
 
 # Menu Bar Management
 cask "bartender"
+
+# Office Suite
+cask "microsoft-auto-update"
+cask "microsoft-office"
+
+# Calendar Management
+cask "fantasical"
+
+
