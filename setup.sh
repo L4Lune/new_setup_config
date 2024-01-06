@@ -4,6 +4,7 @@ echo "Starting Setup..."
 
 # Add repos directory
 mkdir ~/repos
+mv new_setup_config ~/repos/new_setup_config
 cd ~/repos
 
 ### TERMINAL CHANGES
