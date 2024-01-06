@@ -25,6 +25,9 @@ cask "arc"
 #Code Editors
 cask "visual-studio-code"
 
+# General Device Management
+cask "batteries"
+
 # Window Management and Snapping
 cask "raycast"
 cask "alt-tab"
@@ -45,8 +48,11 @@ cask "fantastical"
 
 # Security
 cask "apparency"
+cask "bitwarden"
 cask "suspicious-package"
 cask "silentknight"
+cask "archaeology"
+
 
 
 
