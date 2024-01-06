@@ -11,6 +11,7 @@ brew "gh"
 # CLI Tools
 brew "terraform"
 brew "awscli"
+brew "wget"
 
 ### CASKS
 #Browsers
@@ -34,6 +35,7 @@ cask "warp"
 cask "batteries"
 cask "onyx"
 cask "keka"
+cask "appcleaner"
 
 # Window Management and Snapping
 cask "raycast"
@@ -54,6 +56,7 @@ cask "microsoft-office"
 
 # Messaging
 cask "signal"
+cask "slack"
 
 # Calendar Management
 cask "fantastical"
