@@ -7,6 +7,10 @@ brew "github-keygen"
 brew "gnupg"
 brew "gh"
 
+# CLI Tools
+brew "terraform"
+brew "awscli"
+
 ### CASKS
 #Browsers
 cask "google-chrome"
