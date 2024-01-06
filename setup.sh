@@ -10,13 +10,9 @@ mv ../new_setup_config ~/repos/new_setup_config
 cd ~/repos
 
 ### TERMINAL CHANGES
-# Install Oh-My-ZSH
+# Install Oh-My-ZSH and Add alias to change zsh theme
 echo "Installing Oh-My-ZSH..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
-
-# Add alias to change zsh theme
-echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME"
-echo "alias ztheme='(){ export ZSH_THEME="$@" && source ~/.zshrc }'" >> ~/.zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME" && echo "alias ztheme='(){ export ZSH_THEME="$@" && source ~/.zshrc }'" >> ~/.zshrc
 
 # Change zsh theme to steeef
 ztheme steeef
