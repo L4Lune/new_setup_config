@@ -29,6 +29,7 @@ EOF
 defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0.4 && killall Dock
 
 # Add 6 small spacers
+echo "Adding spacers for dock organization."
 i=1
 while [ $i -le 6 ]
 do
