@@ -25,11 +25,6 @@ EOF
 
 ### DOCK CHANGES
 # Dock Hiding
-echo "Is Dock Hiding enabled in Settings? Press any key after confirming it is enabled."
-
-# while loop to wait for user to press any key
-read -s -n 1
-
 # Add dock hiding animation settings
 defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0.4 && killall Dock
 
