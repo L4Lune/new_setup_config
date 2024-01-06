@@ -12,7 +12,7 @@ cd ~/repos
 ### TERMINAL CHANGES
 # Install Oh-My-ZSH
 echo "Installing Oh-My-ZSH..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
 
 # Add alias to change zsh theme
 echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME"
