@@ -113,4 +113,5 @@ echo "VS Code extension installation complete."
 cd ~
 
 # Reload Shell
+echo "Please reload your shell"
 source zsh -l
