@@ -59,7 +59,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Install BrewFile
 echo "Installing applications with HomeBrew..."
-brew bundle install --file ./Brewfile
+brew bundle install --file="./Brewfile"
 
 # Return to home directory
 cd ~
