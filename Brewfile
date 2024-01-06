@@ -20,6 +20,11 @@ cask "arc"
 #Code Editors
 cask "visual-studio-code"
 
+## VS Code Extensions
+vscode "hashicorp.terraform"
+vscode "ms-python.python"
+vscode "ms-azuretools.vscode-docker"
+
 # Window Management and Snapping
 cask "raycast"
 cask "alt-tab"
