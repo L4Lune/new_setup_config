@@ -1,5 +1,5 @@
 # Directory to install application casks
-cask_args appdir '/Applications'
+cask_args appdir: '/Applications'
 
 # Basic installs for bundle to work well
 tap "homebrew/core"
