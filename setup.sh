@@ -61,5 +61,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Installing applications with HomeBrew..."
 brew bundle install --file ./Brewfile
 
+# Return to home directory
+cd ~
+
 # Reload Shell
 source zsh -l
