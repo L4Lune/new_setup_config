@@ -46,5 +46,5 @@ if test ! $(which brew); then
 fi
 
 # Install BrewFile
-echo "Installing applications with HomeBrew"
+echo "Installing applications with HomeBrew..."
 brew bundle install --file=./Brewfile
