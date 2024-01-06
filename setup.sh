@@ -14,6 +14,15 @@ echo "alias ztheme='(){ export ZSH_THEME="$@" && source ~/.zshrc }'" >> ~/.zshrc
 # Change zsh theme to steeef
 ztheme steeef
 
+### DOCK CHANGES
+# Add 6 small spacers
+i=1
+while [ $i -le 6 ]
+do
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'; killall Dock
+  x=$(( $x + 1 ))
+done
+
 ### APPLICATION INSTALL
 # Install XCode CLI
 echo "Installing XCode CLI..."
