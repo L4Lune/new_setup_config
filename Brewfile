@@ -22,6 +22,9 @@ cask "arc"
 # Storage
 cask "google-drive"
 
+# Containers
+brew "docker"
+
 #Editors
 cask "visual-studio-code"
 cask "adobe-acrobat-reader"

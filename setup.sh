@@ -2,6 +2,47 @@
 
 echo "Starting Setup..."
 
+# Github configuration setup
+if [ -n "$(git config --global user.email)" ]; then
+  echo "✔ Git email is set to $(git config --global user.email)"
+else
+  read -p 'What is your Git email address?: ' gitEmail
+  git config --global user.email "$gitEmail"
+fi
+
+if [ -n "$(git config --global user.name)" ]; then
+  echo "✔ Git display name is set to $(git config --global user.name)"
+else
+  read -p 'What is your Git display name (Firstname Lastname)?: ' gitName
+  git config --global user.name "$gitName"
+fi
+
+# Generate a new SSH key to upload to Github
+echo "Enter your Github email address: "
+read -p githubEmail
+ssh-keygen -t ed25519 -C "$githubEmail"
+
+# Start ssh-agent in the background
+echo "Starting ssh-agent..."
+eval "$(ssh-agent -s)"
+
+# Check if ssh config exists
+echo "Checking if ~/.ssh/config exists and appending necessary configuration..."
+FILE=~/.ssh/config
+if [ ! -f $FILE ]
+then
+  touch ~/.ssh/config
+  cat << EOF >> ~/.ssh/config
+  Host github.com
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519
+EOF
+
+# Add ssh key to agent
+echo "Adding SSH key to agent..."
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
 # Add repos directory
 echo "Creating repos directory in the home folder..."
 mkdir ~/repos
