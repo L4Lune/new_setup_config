@@ -6,7 +6,7 @@ echo "Starting Setup..."
 echo "Creating repos directory in the home folder..."
 mkdir ~/repos
 echo "Moving cloned git repository to repos directory..."
-mv new_setup_config ~/repos/new_setup_config
+mv ../new_setup_config ~/repos/new_setup_config
 cd ~/repos
 
 ### TERMINAL CHANGES
