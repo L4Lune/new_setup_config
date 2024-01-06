@@ -16,9 +16,10 @@ cask "arc"
 #Code Editors
 cask "visual-studio-code"
 
-# Window Management
+# Window Management and Snapping
 cask "raycast"
 cask "alt-tab"
+cask "rectangle"
 
 # Screenshot Tool
 cask "shottr"
