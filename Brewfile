@@ -2,9 +2,11 @@
 cask_args appdir: '/Applications'
 
 # Basic installs for bundle to work well
-tap "homebrew/core"
+# core no longer necessary
+# tap "homebrew/core"
 tap "homebrew/bundle"
-tap "homebrew/cask"
+# cask no longer necessary
+# tap "homebrew/cask"
 tap "buo/cask-upgrade"
 brew "github-keygen"
 brew "gnupg"
