@@ -28,4 +28,4 @@ if test ! $(which brew); then
 fi
 
 # Install BrewFile
-brew bundle --file=./Brewfile
+brew bundle install --file=./Brewfile
