@@ -16,7 +16,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Add alias to change zsh theme
 echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME"
-echo "alias ztheme='(){ export ZSH_THEME="$@" && source $ZSH/oh-my-zsh.sh }'" >> ~/.zshrc
+cat << 'EOF' >> ~/.zshrc
+alias ztheme='(){ export ZSH_THEME="$@" && source $ZSH/oh-my-zsh.sh }'
+EOF
 
 # Change zsh theme to steeef
 /bin/zsh ztheme steeef
