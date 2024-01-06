@@ -52,6 +52,11 @@ if test ! $(which brew); then
 "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+# Add HomeBrew to PATH
+echo "Adding HomeBrew to PATH"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/$USER/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Install BrewFile
 echo "Installing applications with HomeBrew..."
 brew bundle install --file=./Brewfile
