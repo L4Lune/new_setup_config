@@ -19,7 +19,7 @@ echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME"
 echo "alias ztheme='(){ export ZSH_THEME="$@" && source ~/.zshrc }'" >> ~/.zshrc
 
 # Change zsh theme to steeef
-ztheme steeef
+/bin/zsh ztheme steeef
 
 ### DOCK CHANGES
 # Dock Hiding
@@ -59,7 +59,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Install BrewFile
 echo "Installing applications with HomeBrew..."
-brew bundle install --file="./Brewfile"
+brew bundle install --file=~/repos/new_setup_config/Brewfile
 
 # Return to home directory
 cd ~
