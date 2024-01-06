@@ -2,6 +2,10 @@
 
 echo "Starting Setup..."
 
+# Add repos directory
+mkdir ~/repos
+cd ~/repos
+
 ### TERMINAL CHANGES
 # Install Oh-My-ZSH
 echo "Installing Oh-My-ZSH..."
