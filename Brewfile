@@ -43,4 +43,10 @@ cask "microsoft-office"
 # Calendar Management
 cask "fantasical"
 
+# Security
+cask "apparency"
+cask "suspicious-package"
+cask "silentknight"
+
+
 
