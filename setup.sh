@@ -10,9 +10,13 @@ mv ../new_setup_config ~/repos/new_setup_config
 cd ~/repos
 
 ### TERMINAL CHANGES
-# Install Oh-My-ZSH and Add alias to change zsh theme
+# Install Oh-My-ZSH
 echo "Installing Oh-My-ZSH..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME" && echo "alias ztheme='(){ export ZSH_THEME="$@" && source ~/.zshrc }'" >> ~/.zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Add alias to change zsh theme
+echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME"
+echo "alias ztheme='(){ export ZSH_THEME="$@" && source ~/.zshrc }'" >> ~/.zshrc
 
 # Change zsh theme to steeef
 ztheme steeef
@@ -56,3 +60,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Install BrewFile
 echo "Installing applications with HomeBrew..."
 brew bundle install --file=./Brewfile
+
+# Reload Shell
+source zsh -l
