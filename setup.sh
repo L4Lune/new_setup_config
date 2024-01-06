@@ -43,6 +43,8 @@ EOF
 echo "Adding SSH key to agent..."
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
+echo "Be sure to upload your key to Github for authentication"
+
 # Add repos directory
 echo "Creating repos directory in the home folder..."
 mkdir ~/repos
