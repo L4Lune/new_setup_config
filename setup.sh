@@ -16,7 +16,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Add alias to change zsh theme
 echo "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME"
-echo "alias ztheme='(){ export ZSH_THEME="$@" && source ~/.zshrc }'" >> ~/.zshrc
+echo "alias ztheme='(){ export ZSH_THEME="$@" && source $ZSH/oh-my-zsh.sh }'" >> ~/.zshrc
 
 # Change zsh theme to steeef
 /bin/zsh ztheme steeef
@@ -61,6 +61,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Installing applications with HomeBrew..."
 brew bundle install --file=~/repos/new_setup_config/Brewfile
 
+# Install VS Code Extensions
+echo "Installing VS Code extenstions..."
+while read extension; do 
+  code --install-extension $extension
+done < vscode_ext
+
+echo "VS Code extension installation complete."
 # Return to home directory
 cd ~
 
