@@ -56,6 +56,7 @@ cask "notion"
 cask "rambox"
 cask "microsoft-auto-update"
 cask "microsoft-office"
+cask "microsoft-teams"
 
 # Messaging
 cask "signal"
