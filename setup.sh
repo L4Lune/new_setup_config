@@ -4,7 +4,7 @@ BLUEBG="\033[37;44m"
 GREENBG="\033[32;44m"
 MAGBG="\033[35;44m"
 REDBG="\033[41;44m"
-ENDCOLOR="\e[0m"
+ENDCOLOR="\033[0m"
 
 echo -e "${BLUEBG}Starting Setup...${ENDCOLOR}"
 echo ""
