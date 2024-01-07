@@ -52,7 +52,7 @@ if [ $yn == "y" || $yn == "Y"]; then
   if [ ! -f $FILE ]
   then
     touch ~/.ssh/config
-    cat << EOF >> ~/.ssh/config
+    cat <<-EOF >> ~/.ssh/config
     Host github.com
       AddKeysToAgent yes
       UseKeychain yes
