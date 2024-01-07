@@ -21,7 +21,7 @@ cd ~/repos
 
 read -p "Would you like to configure Github username, email, and SSH authentication for this machine? (y/n) " yn
 
-if [ $yn == "y" || $yn == "Y"]; then
+if [ "$yn" == "y" ] || [ "$yn" == "Y" ]; then
   # Github configuration setup
   if [ -n "$(git config --global user.email)" ]; then
     echo "✔ Git email is set to $(git config --global user.email)"
@@ -50,13 +50,13 @@ if [ $yn == "y" || $yn == "Y"]; then
   echo "Checking if ~/.ssh/config exists and appending necessary configuration..."
   FILE=~/.ssh/config
   if [ ! -f $FILE ]; then
-  touch ~/.ssh/config
-  cat <<-EOF >> ~/.ssh/config
-    Host github.com
-      AddKeysToAgent yes
-      UseKeychain yes
-      IdentityFile ~/.ssh/id_ed25519
-EOF
+		touch ~/.ssh/config
+		cat <<-EOF >> ~/.ssh/config
+		Host github.com
+			AddKeysToAgent yes
+			UseKeychain yes
+			IdentityFile ~/.ssh/id_ed25519
+		EOF
   fi
 
   # Add ssh key to agent
@@ -66,7 +66,7 @@ EOF
   echo "Be sure to upload your key to Github for authentication"
 else
 echo -e "${BLUEBG}Skipping Github configuratio...${ENDCOLOR}"
-
+fi
 ### TERMINAL CHANGES
 # Install Oh-My-ZSH
 echo -e "${BLUEBG}Installing Oh-My-ZSH...${ENDCOLOR}"
