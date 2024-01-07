@@ -67,7 +67,7 @@ EOF
 elsif [ $yn == "n" || $yn == "N" ]
   echo "${MAGBG}Skipping Github configuration...${ENDCOLOR}"
 else 
-  echo "${REDBG}Invalid response${ENDCOLOR}";;
+  echo "${REDBG}Invalid response${ENDCOLOR}"
 fi
 done
 
