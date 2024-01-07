@@ -121,7 +121,7 @@ if test ! $(which brew); then
     echo -e "${BLUEBG}Installing VS Code extenstions...${ENDCOLOR}"
     while read extension; do 
       code --install-extension $extension
-    done < vscode_ext
+    done < ./vscode_ext
 
     echo -e "${GREENBG}VS Code extension installation complete...${ENDCOLOR}"
 else
