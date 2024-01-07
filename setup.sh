@@ -127,7 +127,7 @@ fi
 echo -e "${BLUEBG}Installing VS Code extenstions...${ENDCOLOR}"
 while read extension; do 
 	code --install-extension $extension
-done < ./vscode_ext
+done < ~/repos/new_setup_config/vscode_ext
 
 # Return to home directory
 cd ~
