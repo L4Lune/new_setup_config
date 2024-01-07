@@ -19,7 +19,7 @@ chmod +x ~/repos/new_setup_config/*
 cd ~/repos
 
 while true; do
-  read -p "${BLUEBG}Would you like to configure Github username, email, and SSH authentication for this machine? (y/n)${ENDCOLOR} " yn
+  read -p "Would you like to configure Github username, email, and SSH authentication for this machine? (y/n) " yn
 
     case $yn in
       [yY] ) ./github_config.sh
