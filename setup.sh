@@ -186,6 +186,7 @@ EOF
 ### DOCK CHANGES
 # Dock Hiding
 # Add dock hiding animation settings
+deaults delete com.apple.dock; killall Dock
 echo -e "${MAGBG}Enabling Dock Hiding...${ENDCOLOR}"
 defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0.4 && killall Dock
 
