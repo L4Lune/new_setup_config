@@ -1,56 +1,34 @@
 #!/bin/bash
 
-echo "Starting Setup..."
+BLUEBG = "\033[37;44m"
+GREENBG = "\033[32;44m"
+MAGBG = "\033[35;44m"
+REDBG = "\033[41;44m"
+ENDCOLOR = "\e[0m"
 
-# Github configuration setup
-if [ -n "$(git config --global user.email)" ]; then
-  echo "✔ Git email is set to $(git config --global user.email)"
-else
-  read -p 'What is your Git email address?: ' gitEmail
-  git config --global user.email "$gitEmail"
-fi
-
-if [ -n "$(git config --global user.name)" ]; then
-  echo "✔ Git display name is set to $(git config --global user.name)"
-else
-  read -p 'What is your Git display name (Firstname Lastname)?: ' gitName
-  git config --global user.name "$gitName"
-fi
-
-# Generate a new SSH key to upload to Github
-echo "Enter your Github email address: "
-read -p githubEmail
-ssh-keygen -t ed25519 -C "$githubEmail"
-
-# Start ssh-agent in the background
-echo "Starting ssh-agent..."
-eval "$(ssh-agent -s)"
-
-# Check if ssh config exists
-echo "Checking if ~/.ssh/config exists and appending necessary configuration..."
-FILE=~/.ssh/config
-if [ ! -f $FILE ]
-then
-  touch ~/.ssh/config
-  cat << EOF >> ~/.ssh/config
-  Host github.com
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/id_ed25519
-EOF
-
-# Add ssh key to agent
-echo "Adding SSH key to agent..."
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-
-echo "Be sure to upload your key to Github for authentication"
+echo -e "${BLUEBG}Starting Setup...${ENDCOLOR}"
+echo ""
 
 # Add repos directory
-echo "Creating repos directory in the home folder..."
+echo -e "${GREENBG}Creating repos directory in the user's home folder...${ENDCOLOR}"
 mkdir ~/repos
 echo "Moving cloned git repository to repos directory..."
 mv ../new_setup_config ~/repos/new_setup_config
+echo -e "${GREENBG}Making scripts executable...${ENDCOLOR}"
+chmod +x ~/repos/new_setup_config/tools/*
 cd ~/repos
+
+while true; do
+  read -p "${BLUEBG}Would you like to configure Github username, email, and SSH authentication for this machine? (y/n)${ENDCOLOR} " yn
+
+    case $yn in
+      [yY] ) ./tools/github_config.sh;;
+             break;;
+      [nN] ) echo "${MAGBG}Skipping Github configuration...${ENDCOLOR}";;
+             break;;
+      [*]  ) echo "${REDBG}Invalid response${ENDCOLOR}";;
+    esac
+done
 
 ### TERMINAL CHANGES
 # Install Oh-My-ZSH
