@@ -64,7 +64,7 @@ EOF
 
     echo "Be sure to upload your key to Github for authentication"
 
-elsif [ $yn == "n" || $yn == "N" ]
+elif [ $yn == "n" || $yn == "N" ]; then
   echo "${MAGBG}Skipping Github configuration...${ENDCOLOR}"
 else 
   echo "${REDBG}Invalid response${ENDCOLOR}"
