@@ -76,7 +76,7 @@ if test ! $(which brew); then
     (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/$USER/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    # Install BrewFile
+    # Install from BrewFile
     echo -e "${BLUEBG}Installing applications with HomeBrew...${ENDCOLOR}"
     brew bundle install --file=~/repos/new_setup_config/Brewfile
 
@@ -90,6 +90,7 @@ if test ! $(which brew); then
 else
     echo -e "${MAGBG}Skipping HomeBrew installation...${ENDCOLOR}"
     echo -e "${BLUEBG}Updating installed applications...${ENDCOLOR}"
+    brew tap buo/cask-upgrade
     brew cu
 fi
 
