@@ -78,10 +78,6 @@ cat << 'EOF' >> ~/.zshrc
 alias ztheme='(){ export ZSH_THEME="$@" && source $ZSH/oh-my-zsh.sh }'
 EOF
 
-# Change zsh theme to steeef
-echo -e "${MAGBG}Changing theme to steeef${ENDCOLOR}"
-/bin/zsh ztheme steeef
-
 ### DOCK CHANGES
 # Dock Hiding
 # Add dock hiding animation settings
@@ -117,12 +113,6 @@ if test ! $(which brew); then
     echo -e "${BLUEBG}Installing applications with HomeBrew...${ENDCOLOR}"
     brew bundle install --file=~/repos/new_setup_config/Brewfile
 
-    # Install VS Code Extensions
-    echo -e "${BLUEBG}Installing VS Code extenstions...${ENDCOLOR}"
-    while read extension; do 
-      code --install-extension $extension
-    done < ./vscode_ext
-
     echo -e "${GREENBG}VS Code extension installation complete...${ENDCOLOR}"
 else
     echo -e "${MAGBG}Skipping HomeBrew installation...${ENDCOLOR}"
@@ -132,6 +122,12 @@ else
     brew bundle check --file=~/repos/new_setup_config/Brewfile
     brew cu
 fi
+
+# Install VS Code Extensions
+echo -e "${BLUEBG}Installing VS Code extenstions...${ENDCOLOR}"
+while read extension; do 
+	code --install-extension $extension
+done < ./vscode_ext
 
 # Return to home directory
 cd ~
