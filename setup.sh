@@ -1,10 +1,10 @@
 #!/bin/bash
 
-BLUEBG = "\033[37;44m"
-GREENBG = "\033[32;44m"
-MAGBG = "\033[35;44m"
-REDBG = "\033[41;44m"
-ENDCOLOR = "\e[0m"
+BLUEBG="\033[37;44m"
+GREENBG="\033[32;44m"
+MAGBG="\033[35;44m"
+REDBG="\033[41;44m"
+ENDCOLOR="\e[0m"
 
 echo -e "${BLUEBG}Starting Setup...${ENDCOLOR}"
 echo ""
@@ -22,9 +22,9 @@ while true; do
   read -p "${BLUEBG}Would you like to configure Github username, email, and SSH authentication for this machine? (y/n)${ENDCOLOR} " yn
 
     case $yn in
-      [yY] ) ./github_config.sh;;
+      [yY] ) ./github_config.sh
              break;;
-      [nN] ) echo "${MAGBG}Skipping Github configuration...${ENDCOLOR}";;
+      [nN] ) echo "${MAGBG}Skipping Github configuration...${ENDCOLOR}"
              break;;
       [*]  ) echo "${REDBG}Invalid response${ENDCOLOR}";;
     esac
