@@ -20,7 +20,7 @@ cd ~/repos
 
 read -p "Would you like to configure Github username, email, and SSH authentication for this machine? (y/n) " yn
 
-if [ $yn == "y" || $yn == "Y" ]
+if [ $yn == "y" || $yn == "Y" ]; then
 # Github configuration setup
   if [ -n "$(git config --global user.email)" ]; then
     echo "✔ Git email is set to $(git config --global user.email)"
@@ -57,7 +57,7 @@ if [ $yn == "y" || $yn == "Y" ]
         UseKeychain yes
         IdentityFile ~/.ssh/id_ed25519
 EOF
-
+    fi
     # Add ssh key to agent
     echo "Adding SSH key to agent..."
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519
