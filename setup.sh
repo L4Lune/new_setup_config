@@ -240,6 +240,7 @@ done < ~/repos/new_setup_config/vscode_ext
 while read applications; do
 	defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/$applications.app</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>"
 done < ~/repos/new_setup_config/applications_to_dock
+killall Dock
 # Return to home directory
 cd ~
 
