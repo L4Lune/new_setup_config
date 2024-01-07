@@ -91,6 +91,8 @@ else
     echo -e "${MAGBG}Skipping HomeBrew installation...${ENDCOLOR}"
     echo -e "${BLUEBG}Updating installed applications...${ENDCOLOR}"
     brew tap buo/cask-upgrade
+    brew bundle cleanup --file=~/repos/new_setup_config/Brewfile
+    brew bundle check --file=~/repos/new_setup_config/Brewfile
     brew cu
 fi
 
