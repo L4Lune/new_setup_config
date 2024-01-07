@@ -226,6 +226,7 @@ else
     brew tap buo/cask-upgrade
     brew bundle cleanup --file=~/repos/new_setup_config/Brewfile
     brew bundle check --file=~/repos/new_setup_config/Brewfile
+		brew bundle install --file=~/repos/new_setup_config/Brewfile
     brew cu
 fi
 
