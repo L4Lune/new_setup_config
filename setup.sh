@@ -38,8 +38,8 @@ if [ "$yn" == "y" ] || [ "$yn" == "Y" ]; then
   fi
 
   # Generate a new SSH key to upload to Github
+	echo "Your Github email address will be the identifier for your new key."
   read -p "Enter your Github email address: " githubEmail
-	echo "This will be the identifier for your new key."
   ssh-keygen -t ed25519 -C "$githubEmail"
 
   # Start ssh-agent in the background
