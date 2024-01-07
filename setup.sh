@@ -49,15 +49,15 @@ if [ $yn == "y" || $yn == "Y"]; then
   # Check if ssh config exists
   echo "Checking if ~/.ssh/config exists and appending necessary configuration..."
   FILE=~/.ssh/config
-  if [ ! -f $FILE ]
-  then
-    touch ~/.ssh/config
-    cat <<-EOF >> ~/.ssh/config
+  if [ ! -f $FILE ]; then
+  touch ~/.ssh/config
+  cat <<-EOF >> ~/.ssh/config
     Host github.com
       AddKeysToAgent yes
       UseKeychain yes
       IdentityFile ~/.ssh/id_ed25519
 EOF
+  fi
 
   # Add ssh key to agent
   echo "Adding SSH key to agent..."
