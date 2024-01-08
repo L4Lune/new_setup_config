@@ -53,7 +53,7 @@ add_ssh_key_to_agent () {
 				ssh-add --apple-use-keychain "$key_path";;
 
 			"exit") break;;
-			* ) echo "Invalid response."
+			* ) echo "Invalid response.";;
 		esac 
 	done
 }

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Source scripts
+source ./tools/github_config.sh
+
+# Colors (THIS NEEDS TO BE REWORKED TO LOOK GOOD)
 BLUEBG="\033[37;44m"
 GREENBG="\033[32;44m"
 MAGBG="\033[35;44m"
@@ -9,18 +13,76 @@ ENDCOLOR="\033[0m"
 echo -e "${BLUEBG}Starting Setup...${ENDCOLOR}"
 echo ""
 
+while true; do
+	read -p "Select an option to continue configuration process: " option
+	cat <<-EOF
+	0] To configure a new machine to the preferred baseline
+	1] Git/Github Options
+	2] Installation Options
+	3] Reinstallation Option
+	4] Dock Customization Option
+	5] Nevermind, I am just winging it here with this computer
+	EOF
+	
+	case $option in
+		"0")
+			# Create repos directory and move repo
+			echo -e "${GREENBG}Creating repos directory in the user's home folder...${ENDCOLOR}"
+			mkdir ~/repos
+			echo "Moving new_setup_config repository to repos directory..."
+			mv ../new_setup_config ~/repos/new_setup_config
+			echo -e "${GREENBG}Making scripts executable...${ENDCOLOR}"
+			chmod +x ~/repos/new_setup_config/tools/*
+			cd ~/repos	
+
+			# Configure Global Git options
+			configure_git_email_display_name
+
+			# Generate SSH Key
+			echo -e "Starting SSH Key generation process..."
+			echo -e ""
+			generate_gh_ssh_key
+
+			# Start SSH Agent
+			start_ssh_agent
+
+			# Add SSH Key to SSH Agent
+			add_ssh_key_to_agent
+
+			# Create SSH Config if absent
+			create_ssh_config_if_absent
+
+			# Append Github Host content to SSH Config if absent
+			append_gh_content_ssh_config
+	esac
+
+
+
+
 # Add repos directory
 echo -e "${GREENBG}Creating repos directory in the user's home folder...${ENDCOLOR}"
 mkdir ~/repos
-echo "Moving cloned git repository to repos directory..."
+echo "Moving new_setup_config repository to repos directory..."
 mv ../new_setup_config ~/repos/new_setup_config
 echo -e "${GREENBG}Making scripts executable...${ENDCOLOR}"
-chmod +x ~/repos/new_setup_config/*
+chmod +x ~/repos/new_setup_config/tools/*
 cd ~/repos
 
 
-read -p "Would you like to configure Github username, email, and SSH authentication for this machine? (y/n) " yn
+read -p "Would you like to configure global Git username and email for this machine? (y/n)" yn
 
+while true; do
+	case $yn in
+		"Y" | "y" | "YES" | "Yes" | "yes") 
+			configure_git_email_display_name;;
+		"N" | "n" | "No" | "NO" | "no" | "nO") 	
+			"Skipping global Git username and email configuration..."
+			break;;
+		"exit" | "Exit" | "EXIT") 
+			break;;
+		* ) echo "Invalid response.";;
+	esac 
+done
 if [ "$yn" == "y" ] || [ "$yn" == "Y" ]; then
   # Github configuration setup
   if [ -n "$(git config --global user.email)" ]; then
