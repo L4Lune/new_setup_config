@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# Configure all Git and Github options
+configure_git () {
+# Configure Global Git options
+  configure_git_email_display_name
+
+  # Generate SSH Key
+  echo -e "Starting SSH Key generation process..."
+  echo -e ""
+  generate_gh_ssh_key
+
+  # Start SSH Agent
+  start_ssh_agent
+
+  # Add SSH Key to SSH Agent
+  add_ssh_key_to_agent
+
+  # Create SSH Config if absent
+  create_ssh_config_if_absent
+
+  # Append Github Host content to SSH Config if absent
+  append_gh_content_ssh_config
+}
+
 # Configure the global git username and email address
 configure_git_email_display_name () {
 if [ -n "$(git config --global user.email)" ]; then

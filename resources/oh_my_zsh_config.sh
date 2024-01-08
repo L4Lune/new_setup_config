@@ -1,6 +1,17 @@
 #!/bin/bash
 
-### TERMINAL CHANGES
+# Configure all Oh-My-ZSH options
+configure_omz () {
+	# Install Oh-My-ZSH
+	install_omz
+
+	# Add updated .zshrc config
+	add_updated_zshrc
+
+	# Add ztheme alias
+	add_ztheme_alias
+}
+
 # Install Oh-My-ZSH
 install_omz () {
   echo -e "${BLUEBG}Installing Oh-My-ZSH...${ENDCOLOR}"
