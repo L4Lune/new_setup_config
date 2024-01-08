@@ -7,6 +7,7 @@ configure_dock () {
   dock_hiding
   add_dock_spacers
   add_apps_to_dock
+  show_path_bar
 }
 
 # Reset Dock to default
@@ -49,4 +50,8 @@ while read applications; do
             </dict>"
 done < /$HOME/repos/new_setup_config/resources/applications_to_dock
 killall Dock
+}
+
+show_path_bar () {
+  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 }
