@@ -1,3 +1,3 @@
-source ./github_config.sh
 
-append_gh_content_ssh_config
+source ./resources/dock_config.sh
+add_apps_to_dock
