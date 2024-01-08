@@ -16,13 +16,13 @@ reset_dock () {
 
 # Dock Hiding
 dock_hiding () {
-  echo -e "${MAGBG}Enabling Dock Hiding...${ENDCOLOR}"
+  echo -e "Enabling Dock Hiding...}"
   defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0.4 && killall Dock
 }
 
 # Add 6 small spacers to Dock
 add_dock_spacers () {
-  echo -e "${MAGBG}Adding spacers for dock organization...${ENDCOLOR}"
+  echo -e "Adding spacers for dock organization...}"
   i=6
   while [ $i -gt 0 ]
   do

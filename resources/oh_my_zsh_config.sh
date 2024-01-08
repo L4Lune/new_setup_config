@@ -14,7 +14,7 @@ configure_omz () {
 
 # Install Oh-My-ZSH
 install_omz () {
-  echo -e "${BLUEBG}Installing Oh-My-ZSH...${ENDCOLOR}"
+  echo -e "Installing Oh-My-ZSH...}"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 }
 
@@ -128,7 +128,7 @@ add_updated_zshrc () {
 
 # Add ztheme alias
 add_ztheme_alias () {
-	echo -e "${GREENBG}Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME...${ENDCOLOR}"
+	echo -e "Adding 'ztheme' alias to ~/.zshrc to change ZSH_THEME...}"
 	cat <<-EOF >> ~/.zshrc
 	alias ztheme='(){ export ZSH_THEME="$@" && source $ZSH/oh-my-zsh.sh }'
 	EOF
