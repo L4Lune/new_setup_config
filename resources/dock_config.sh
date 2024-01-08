@@ -34,12 +34,12 @@ while read applications; do
                     <key>file-data</key>
                     <dict>
                         <key>_CFURLString</key>
-                        <string>/Volumes/Macintosh HD/Applications/'${applications}.app'</string>
+                        <string>/Volumes/Macintosh HD/Applications/${applications}.app</string>
                         <key>_CFURLStringType</key>
                         <integer>0</integer>
                     </dict>
                 </dict>
             </dict>"
-done < ~/repos/new_setup_config/resources/applications_to_dock
+done < /$HOME/repos/new_setup_config/resources/applications_to_dock
 killall Dock
 }
