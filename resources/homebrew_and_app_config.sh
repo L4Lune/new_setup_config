@@ -11,23 +11,23 @@ install_homebrew_and_apps () {
 
 # Install HomeBrew if not already installed
 install_homebrew () {
-  echo -e "Checking if HomeBrew is installed...}"
+  echo -e "Checking if HomeBrew is installed..."
   if test ! $(which brew); then
-      echo -e "Installing HomeBrew...}"
+      echo -e "Installing HomeBrew..."
       /bin/bash -c \
   "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 # Add HomeBrew to PATH
 add_homebrew_to_path () {
-  echo -e "Adding HomeBrew to PATH...}"
+  echo -e "Adding HomeBrew to PATH..."
   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/$USER/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 }
       
 # Install from BrewFile
 install_apps_from_brewfile () {
-  echo -e "Installing applications with HomeBrew...}"
+  echo -e "Installing applications with HomeBrew..."
   brew bundle install --file=~/repos/new_setup_config/Brewfile
 }
 
@@ -49,7 +49,7 @@ uninstall_homebrew () {
 
 # Install VS Code Extensions
 install_vscode_ext () {
-  echo -e "Installing VS Code extenstions...}"
+  echo -e "Installing VS Code extenstions..."
   while read extension; do 
     code --install-extension $extension
   done < ./vscode_ext

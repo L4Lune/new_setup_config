@@ -159,4 +159,4 @@ done
 cd ~
 
 # Reload Shell
-echo -e "${GREENGB}Setup complete. Please reload your shell...}"
+echo -e "Setup complete. Please reload your shell...}"
