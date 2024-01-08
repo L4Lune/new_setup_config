@@ -52,6 +52,7 @@ while true; do
 
 			### INSTALL VSCODE EXTENSIONS
 			install_vscode_ext
+			
 			### DOCK CHANGES
 			configure_dock
 			echo "Please add your new SSH key to Github for authentication."
