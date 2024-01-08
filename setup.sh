@@ -28,17 +28,22 @@ while true; do
 
 	case $option in
 		"0")
+			# Set new hostname for the machine
+			read -p "What would you like the hostname to be of this machine?" hostname
+			sudo scutil --set HostName "$hostname"
+			dscacheutil -flushcache
+
 			# Create repos directory and move repo
 			echo -e "Creating repos directory in the user's home folder..."
 			mkdir ~/repos
 			echo "Moving new_setup_config repository to repos directory..."
 			mv ../new_setup_config ~/repos/new_setup_config
-			echo -e "Making scripts executable...}"
+			echo -e "Making scripts executable..."
 			chmod +x ~/repos/new_setup_config/resources/*
 			cd ~/repos
 
 			# Install XCode CLI
-			echo -e "Installing XCode CLI...}"
+			echo -e "Installing XCode CLI..."
 			xcode-select --install	
 
 			### GIT OPTIONS
@@ -159,4 +164,4 @@ done
 cd ~
 
 # Reload Shell
-echo -e "Setup complete. Please reload your shell...}"
+echo -e "Setup complete. Please reload your shell..."
