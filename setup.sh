@@ -29,8 +29,9 @@ while true; do
 
 	case $option in
 		"0")
-			# Set hostname
-			set_hostname
+			### SYSTEM SETTINGs
+			# Set settings
+			set_all_settings
 
 			# Create repos directory + make executable
 			create_repos_dir
@@ -52,7 +53,7 @@ while true; do
 
 			### INSTALL VSCODE EXTENSIONS
 			install_vscode_ext
-			
+
 			### DOCK CHANGES
 			configure_dock
 			echo "Please add your new SSH key to Github for authentication."
