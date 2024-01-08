@@ -5,7 +5,9 @@
 
 set_hostname () {
   read -p "What would you like the hostname to be of this machine?" hostname
+  sudo scutil --set ComputerName "$hostname"
   sudo scutil --set HostName "$hostname"
+  sudo scutil --set LocalHostName "$hostname"
   dscacheutil -flushcache
 }
 
