@@ -54,4 +54,5 @@ killall Dock
 
 show_path_bar () {
   defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+  killall Finder
 }
