@@ -51,6 +51,8 @@ add_ssh_key_to_agent () {
 				read -p "Enter the file path, including the name of the key, you created: " key_path
 				echo "Adding SSH key to agent..."
 				ssh-add --apple-use-keychain "$key_path";;
+
+			"exit") break;;
 			* ) echo "Invalid response."
 		esac 
 	done
@@ -77,23 +79,9 @@ Host github.com
 
 	if [ ! -e "$LOCAL_SSH_CONFIG_FILE" ] || ! grep -q "$(<<<"$GH_HOST_CONFIG" tr '\n' '\01')" < <(less "$LOCAL_SSH_CONFIG_FILE" | tr '\n' '\01'); then
 		echo "Appending the following content to ~/.ssh/config: "
-		echo $GH_HOST_CONFIG
+		echo "$GH_HOST_CONFIG"
 		printf '%s\n' "$GH_HOST_CONFIG" >> "$LOCAL_SSH_CONFIG_FILE"
 	else
 		echo "Github host configuration is already present in ~/.ssh/config."
   fi
 }
-# 	cat <<-EOF >> ~/.ssh/config
-# 	Host github.com
-# 		AddKeysToAgent yes
-# 		UseKeychain yes
-# 		IdentityFile ~/.ssh/id_ed25519
-# 	EOF
-# else
-# 	cat <<-EOF >> ~/.ssh/config
-# 	Host github.com
-# 		AddKeysToAgent yes
-# 		UseKeychain yes
-# 		IdentityFile ~/.ssh/id_ed25519
-# 	EOF
-# fi
