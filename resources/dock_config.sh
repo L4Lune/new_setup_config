@@ -51,8 +51,3 @@ while read applications; do
 done < /$HOME/repos/new_setup_config/resources/applications_to_dock
 killall Dock
 }
-
-show_path_bar () {
-  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-  killall Finder
-}
