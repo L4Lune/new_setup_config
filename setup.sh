@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source scripts
-source ./tools/github_config.sh
+source ./tools/git_config.sh
 
 # Colors (THIS NEEDS TO BE REWORKED TO LOOK GOOD)
 BLUEBG="\033[37;44m"
@@ -23,7 +23,7 @@ while true; do
 	4] Dock Customization Option
 	5] Nevermind, I am just winging it here with this computer
 	EOF
-	
+
 	case $option in
 		"0")
 			# Create repos directory and move repo
@@ -35,6 +35,7 @@ while true; do
 			chmod +x ~/repos/new_setup_config/tools/*
 			cd ~/repos	
 
+			### GIT OPTIONS
 			# Configure Global Git options
 			configure_git_email_display_name
 
@@ -54,81 +55,12 @@ while true; do
 
 			# Append Github Host content to SSH Config if absent
 			append_gh_content_ssh_config
+
+			### TERMINAL CHANGES
+
 	esac
-
-
-
-
-# Add repos directory
-echo -e "${GREENBG}Creating repos directory in the user's home folder...${ENDCOLOR}"
-mkdir ~/repos
-echo "Moving new_setup_config repository to repos directory..."
-mv ../new_setup_config ~/repos/new_setup_config
-echo -e "${GREENBG}Making scripts executable...${ENDCOLOR}"
-chmod +x ~/repos/new_setup_config/tools/*
-cd ~/repos
-
-
-read -p "Would you like to configure global Git username and email for this machine? (y/n)" yn
-
-while true; do
-	case $yn in
-		"Y" | "y" | "YES" | "Yes" | "yes") 
-			configure_git_email_display_name;;
-		"N" | "n" | "No" | "NO" | "no" | "nO") 	
-			"Skipping global Git username and email configuration..."
-			break;;
-		"exit" | "Exit" | "EXIT") 
-			break;;
-		* ) echo "Invalid response.";;
-	esac 
 done
-if [ "$yn" == "y" ] || [ "$yn" == "Y" ]; then
-  # Github configuration setup
-  if [ -n "$(git config --global user.email)" ]; then
-    echo "✔ Git email is set to $(git config --global user.email)"
-  else
-    read -p 'What is your Git email address?: ' gitEmail
-    git config --global user.email "$gitEmail"
-  fi
 
-  if [ -n "$(git config --global user.name)" ]; then
-    echo "✔ Git display name is set to $(git config --global user.name)"
-  else
-    read -p 'What is your Git display name (Firstname Lastname)?: ' gitName
-    git config --global user.name "$gitName"
-  fi
-
-  # Generate a new SSH key to upload to Github
-	echo "Your Github email address will be the identifier for your new key."
-  read -p "Enter your Github email address: " githubEmail
-  ssh-keygen -t ed25519 -C "$githubEmail"
-
-  # Start ssh-agent in the background
-  echo "Starting ssh-agent..."
-  eval "$(ssh-agent -s)"
-
-  # Check if ssh config exists
-  echo "Checking if ~/.ssh/config exists and appending necessary configuration..."
-  FILE=~/.ssh/config
-  if [ ! -f $FILE ]; then
-		touch ~/.ssh/config
-		cat <<-EOF >> ~/.ssh/config
-		Host github.com
-			AddKeysToAgent yes
-			UseKeychain yes
-			IdentityFile ~/.ssh/id_ed25519
-		EOF
-  fi
-
-  # Add ssh key to agent
-  echo "Adding SSH key to agent..."
-  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-
-  echo "Be sure to upload your key to Github for authentication"
-else
-echo -e "${BLUEBG}Skipping Github configuratio...${ENDCOLOR}"
-fi
 ### TERMINAL CHANGES
 # Install Oh-My-ZSH
 echo -e "${BLUEBG}Installing Oh-My-ZSH...${ENDCOLOR}"
