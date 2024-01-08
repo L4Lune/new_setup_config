@@ -63,6 +63,7 @@ create_ssh_config_if_absent () {
 	if [ ! -f $FILE ]; then
 		echo "~/.ssh/config does not exist. Creating it now..."
 		touch ~/.ssh/config
+	fi
 }
 
 append_gh_content_ssh_config () {
