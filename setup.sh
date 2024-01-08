@@ -104,6 +104,7 @@ while true; do
 					0] Install HomeBrew and Applications
 					1] Install HomeBrew Applications
 					2] Install Oh-My-ZSH
+          3] Exit the Program
 					EOF
 
 					case $installOptions in
@@ -116,6 +117,9 @@ while true; do
 						"2")
 							configure_omz
 							break;;
+            "3")
+              echo "Exiting the Program..."
+              exit;;
 					esac
 				done
 				;; # Case 2 complete
