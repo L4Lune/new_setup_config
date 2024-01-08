@@ -5,6 +5,7 @@ source ./resources/git_config.sh
 source ./resources/oh_my_zsh_config.sh
 source ./resources/homebrew_config.sh
 source ./resources/dock_config.sh
+source ./resources/system_settings.sh
 
 # Colors (THIS NEEDS TO BE REWORKED TO LOOK GOOD)
 BLUEBG="\033[37;44m"
@@ -28,18 +29,12 @@ while true; do
 
 	case $option in
 		"0")
-			# Set new hostname for the machine
-			read -p "What would you like the hostname to be of this machine?" hostname
-			sudo scutil --set HostName "$hostname"
-			dscacheutil -flushcache
+			# Set hostname
+			set_hostname
 
-			# Create repos directory and move repo
-			echo -e "Creating repos directory in the user's home folder..."
-			mkdir ~/repos
-			echo "Moving new_setup_config repository to repos directory..."
-			mv ../new_setup_config ~/repos/new_setup_config
-			echo -e "Making scripts executable..."
-			chmod +x ~/repos/new_setup_config/resources/*
+			# Create repos directory + make executable
+			create_repos_dir
+
 			cd ~/repos
 
 			# Install XCode CLI
