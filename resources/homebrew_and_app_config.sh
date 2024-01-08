@@ -46,3 +46,11 @@ update_all_homebrew_apps () {
 uninstall_homebrew () {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 }
+
+# Install VS Code Extensions
+install_vscode_ext () {
+  echo -e "${BLUEBG}Installing VS Code extenstions...${ENDCOLOR}"
+  while read extension; do 
+    code --install-extension $extension
+  done < ./vscode_ext
+}

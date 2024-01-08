@@ -48,8 +48,19 @@ while true; do
 			### OH-MY-ZSH OPTIONS
 			configure_omz
 
+			### INSTALL HOMEBREW AND APPLICATIONS
+			install_homebrew_and_apps
+
+			### INSTALL VSCODE EXTENSIONS
+			install_vscode_ext
 			### DOCK CHANGES
-			# Enable Dock Hiding
+			configure_dock
+			echo "Please add your new SSH key to Github for authentication."
+			echo "Please rearrange the Dock icons and spacers to your liking"
+			break
+			;;
+
+		"1")
 			
 	esac
 done
@@ -57,11 +68,7 @@ done
 
 
 
-# Install VS Code Extensions
-echo -e "${BLUEBG}Installing VS Code extenstions...${ENDCOLOR}"
-while read extension; do 
-	code --install-extension $extension
-done < ~/repos/new_setup_config/vscode_ext
+
 
 # Return to home directory
 cd ~

@@ -2,6 +2,13 @@
 
 ### DOCK OPTIONS
 
+# Configure Dock
+configure_dock () {
+  dock_hiding
+  add_dock_spacers
+  add_apps_to_dock
+}
+
 # Reset Dock to default
 reset_dock () {
   defaults delete com.apple.dock; killall Dock
