@@ -24,7 +24,7 @@ while true; do
 	2] Installation Options
 	3] Reinstallation Option
 	4] Dock Customization Option
-	5] Nevermind, I am just winging it here with this computer
+	5] Nevermind, I am just winging it here with this computer (Exit the Program)
 	EOF
 
 	case $option in
@@ -58,9 +58,48 @@ while true; do
 			echo "Please add your new SSH key to Github for authentication."
 			echo "Please rearrange the Dock icons and spacers to your liking"
 			break
-			;;
+			;; # Case 0 complete
 
 		"1")
+			while true; do
+				read -p "Select an option to continue configuring Git and Github settings for this machine: " gitOptions
+				cat <<-EOF
+				0] Full Git reconfiguration
+				1] Configure Git display name and email
+				2] Generate a new SSH key pair and add to the SSH Agent
+				3] Add an imported SSH key to the SSH Agent
+				4] Add the Github Host configuration to ~/.ssh/config
+				5] Exit the Program
+				EOF
+
+				case $gitOptions in
+					"0")
+						configure_git
+						break;;
+					"1")
+						configure_git_email_display_name
+						break;;
+					"2")
+						generate_gh_ssh_key
+						break;;
+					"3")
+						start_ssh_agent
+						add_ssh_key_to_agent
+						break;;
+					"4")
+						append_gh_content_ssh_config
+						break;;
+					"5")
+						echo "You can rerun this program at any time to update these configurations."
+						exit;;
+				esac
+			done
+			;; # Case 1 complete
+			
+			"2") 
+			
+
+
 			
 	esac
 done
