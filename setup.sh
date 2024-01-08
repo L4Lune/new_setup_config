@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Source scripts
-source ./tools/git_config.sh
+source ./resources/git_config.sh
+source ./resources/oh_my_zsh_config.sh
 
 # Colors (THIS NEEDS TO BE REWORKED TO LOOK GOOD)
 BLUEBG="\033[37;44m"
