@@ -33,11 +33,8 @@ install_apps_from_brewfile () {
 
 uninstall_apps_from_brewfile () {
   echo "Uninstalling all applications managed by HomeBrew..."
-  while [[ `brew list | wc -l` -ne 0 ]]; do
-    for EACH in `brew list`; do
-      brew uninstall --force --ignore-dependencies $EACH
-    done
-  done
+  brew remove --force $(brew list --formula)
+  brew remove --cask --force $(brew list)
 }
 
 update_all_homebrew_apps () {
