@@ -34,7 +34,7 @@ while true; do
 			echo "Moving new_setup_config repository to repos directory..."
 			mv ../new_setup_config ~/repos/new_setup_config
 			echo -e "Making scripts executable...}"
-			chmod +x ~/repos/new_setup_config/tools/*
+			chmod +x ~/repos/new_setup_config/resources/*
 			cd ~/repos
 
 			# Install XCode CLI
