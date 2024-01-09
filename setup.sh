@@ -59,6 +59,8 @@ while true; do
 			configure_dock
 			echo "Please add your new SSH key to Github for authentication."
 			echo "Please rearrange the Dock icons and spacers to your liking"
+
+
 			break
 			;; # Case 0 complete
 
