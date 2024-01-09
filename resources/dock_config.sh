@@ -24,7 +24,7 @@ dock_hiding () {
 # Add 6 small spacers to Dock
 add_dock_spacers () {
   echo -e "Adding spacers for dock organization..."
-  i=8
+  i=9
   while [ $i -gt 0 ]
   do
     defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'; killall Dock
