@@ -3,14 +3,14 @@
 # APPLICATION INSTALL
 
 # All HomeBrew Options
-install_homebrew_and_apps () {
-  install_homebrew
+configure_homebrew_and_apps () {
+  get_homebrew
   add_homebrew_to_path
-  install_apps_from_brewfile
+  get_apps_from_brewfile
 }
 
 # Install HomeBrew if not already installed
-install_homebrew_package_manager () {
+get_homebrew () {
   echo -e "Checking if HomeBrew is installed..."
   if test ! $(which brew); then
       echo -e "Installing HomeBrew..."
@@ -27,7 +27,7 @@ add_homebrew_to_path () {
 }
       
 # Install from BrewFile
-install_apps_from_brewfile () {
+get_apps_from_brewfile () {
   echo -e "Installing applications with HomeBrew..."
   brew bundle install --file=~/repos/new_setup_config/Brewfile
 }
