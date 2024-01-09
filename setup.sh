@@ -3,7 +3,7 @@
 # Source scripts
 source ./resources/git_config.sh
 source ./resources/oh_my_zsh_config.sh
-source ./resources/homebrew_config.sh
+source ./resources/homebrew_and_app_config.sh
 source ./resources/dock_config.sh
 source ./resources/system_settings.sh
 
