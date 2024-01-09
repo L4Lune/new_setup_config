@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### APPLICATION INSTALL
+# APPLICATION INSTALL
 
 # All HomeBrew Options
 install_homebrew_and_apps () {
@@ -10,7 +10,7 @@ install_homebrew_and_apps () {
 }
 
 # Install HomeBrew if not already installed
-install_homebrew () {
+install_homebrew_package_manager () {
   echo -e "Checking if HomeBrew is installed..."
   if test ! $(which brew); then
       echo -e "Installing HomeBrew..."
