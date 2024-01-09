@@ -54,7 +54,6 @@ cask "bartender"
 
 # Office Suite and Productivity
 cask "notion"
-cask "rambox"
 cask "microsoft-auto-update"
 cask "microsoft-office"
 cask "microsoft-teams"
