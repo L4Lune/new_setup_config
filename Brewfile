@@ -39,6 +39,7 @@ cask "batteries"
 cask "onyx"
 cask "keka"
 cask "appcleaner"
+cask "stats"
 
 # Window Management and Snapping
 cask "raycast"
