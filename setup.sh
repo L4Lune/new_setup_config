@@ -50,7 +50,7 @@ while true; do
 			configure_omz
 
 			### INSTALL HOMEBREW AND APPLICATIONS
-			install_homebrew_and_apps
+			configure_homebrew_and_apps
 
 			### INSTALL VSCODE EXTENSIONS
 			install_vscode_ext
