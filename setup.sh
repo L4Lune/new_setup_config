@@ -18,14 +18,15 @@ echo -e "Starting Setup..."
 echo ""
 
 while true; do
-	read -p "Select an option to continue configuration process: " option
 	cat <<-EOF
+  Select an option to continue configuration process: 
 	0] To configure a new machine to the preferred baseline
 	1] Git/Github Options
 	2] Installation Options
 	3] Dock Customization Option
 	4] Nevermind, I am just winging it here with this computer (Exit the Program)
 	EOF
+  read -p "Enter response: " option
 
 	case $option in
 		"0")
@@ -63,8 +64,8 @@ while true; do
 
 		"1")
 			while true; do
-				read -p "Select an option to continue configuring Git and Github settings for this machine: " gitOptions
 				cat <<-EOF
+        Select an option to continue configuring Git and Github settings for this machine:
 				0] Full Git reconfiguration
 				1] Configure Git display name and email
 				2] Generate a new SSH key pair and add to the SSH Agent
@@ -72,6 +73,7 @@ while true; do
 				4] Add the Github Host configuration to ~/.ssh/config
 				5] Exit the Program
 				EOF
+        read -p "Enter response: " gitOptions
 
 				case $gitOptions in
 					"0")
@@ -99,13 +101,14 @@ while true; do
 			
 			"2") 
 				while true; do
-					read -p "Please select the installation option you require: " installOptions
 					cat <<-EOF
+          Please select an installation option: 
 					0] Install HomeBrew and Applications
 					1] Install HomeBrew Applications
 					2] Install Oh-My-ZSH
           3] Exit the Program
 					EOF
+          read -p "Enter response: " installOptions
 
 					case $installOptions in
 						"0")
@@ -126,8 +129,9 @@ while true; do
 
 			"3")
 				while true; do
-					read -p "Choose the required Dock customization option you require: " dockOptions
+					
 					cat <<-EOF
+          Select a Dock customization option: 
 					0] Reset Dock to default
 					1] Enable Dock hiding
 					2] Add spacers to the Dock
@@ -135,6 +139,7 @@ while true; do
 					4] Exit the Program
 					EOF
 					
+          read -p "Enter response: " dockOptions
 					case $dockOptions in
 					"0")
 					 reset_dock
