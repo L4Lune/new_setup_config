@@ -14,8 +14,12 @@ configure_omz () {
 
 # Install Oh-My-ZSH
 install_omz () {
-  echo -e "Installing Oh-My-ZSH..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  FILE="$HOME/.oh-my-zsh"
+	if [ ! -f $FILE ]; then
+    echo -e "Installing Oh-My-ZSH..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  else
+    echo "Oh-My-ZSH is already installed. Skipping..."
 }
 
 # Add alias to change zsh theme
