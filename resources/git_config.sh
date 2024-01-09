@@ -69,11 +69,13 @@ add_ssh_key_to_agent () {
 		read -p "Did you select the default file to save the key?" yn
 		case $yn in
 			"Y" | "y" | "YES" | "Yes" | "yes") 
-				ssh-add --apple-use-keychain ~/.ssh/id_ed25519;;
+				ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+        break;;
 			"N" | "n" | "No" | "NO" | "no" | "nO") 	
 				read -p "Enter the file path, including the name of the key, you created: " key_path
 				echo "Adding SSH key to agent..."
-				ssh-add --apple-use-keychain "$key_path";;
+				ssh-add --apple-use-keychain "$key_path"
+        break;;
 
 			"exit") break;;
 			* ) echo "Invalid response.";;
