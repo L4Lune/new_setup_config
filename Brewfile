@@ -68,7 +68,6 @@ cask "fantastical"
 # Security
 cask "expressvpn"
 cask "apparency"
-cask "bitwarden"
 cask "suspicious-package"
 cask "silentknight"
 cask "archaeology"
